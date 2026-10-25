@@ -1,0 +1,5 @@
+kubectl run nginx-test \
+  --image=curlimages/curl \
+  --restart=Never \
+  --rm -i \
+  -- curl -s http://app1-service/
