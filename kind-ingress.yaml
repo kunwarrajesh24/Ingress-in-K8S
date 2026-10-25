@@ -7,3 +7,11 @@ nodes:
       - containerPort: 80
         hostPort: 8000
         protocol: TCP
+
+
+
+
+## Create the cluster
+kind create cluster --name ingress-lab --config kind-ingress.yaml
+##Verify the cluster
+kubectl cluster-info --context kind-ingress-lab
