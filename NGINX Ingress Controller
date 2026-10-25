@@ -1,0 +1,21 @@
+Step 1: Install the controller
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/kind/deploy.yaml
+
+Step 2: Wait for the controller
+
+kubectl wait \
+  --namespace ingress-nginx \
+  --for=condition=Ready pod \
+  --selector=app.kubernetes.io/component=controller \
+  --timeout=180s
+
+Step 3: Verify the controller
+kubectl get pods -n ingress-nginx
+
+## Check the Ingress class:
+kubectl get ingressclass
+
+## Check the EC2 host-port mapping:
+
+docker port ingress-lab-control-plane
+
