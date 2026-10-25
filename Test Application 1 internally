@@ -3,3 +3,8 @@ kubectl run nginx-test \
   --restart=Never \
   --rm -i \
   -- curl -s http://app1-service/
+
+If the test fails, verify that the Deployment's Pods are ready and that the Service has endpoints:
+
+kubectl get endpointslice \
+  -l kubernetes.io/service-name=app1-service
