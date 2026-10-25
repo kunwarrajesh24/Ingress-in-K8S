@@ -1,0 +1,22 @@
+### Install kubectl
+kubectl is the command-line client used to communicate with Kubernetes.
+
+Step 1: Download kubectl
+The following commands install the latest stable kubectl release:
+
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+Download its checksum:
+
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+
+Verify the downloaded file:
+
+echo "$(cat kubectl.sha256)  kubectl" | sha256sum --check
+
+Step 2: Install the binary
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+##Verify:
+kubectl version --client
+
