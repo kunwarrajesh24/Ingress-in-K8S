@@ -1,0 +1,26 @@
+Step 1: Download KIND
+For a standard x86-64 EC2 instance:
+curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.30.0/kind-linux-amd64
+
+Install it:
+chmod +x ./kind
+sudo mv ./kind /usr/local/bin/kind
+
+Verify:
+kind version
+
+ ## Create the Kubernetes Cluster
+We will create a KIND cluster named:
+
+ingress-lab
+
+Step 1: Create a working directory
+mkdir -p ~/kubernetes-ingress-practical
+cd ~/kubernetes-ingress-practical
+
+All our practical files will be stored here.
+
+Check your current directory:
+pwd
+Expected:
+/home/ubuntu/kubernetes-ingress-practical
