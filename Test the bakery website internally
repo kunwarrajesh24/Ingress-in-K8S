@@ -1,0 +1,5 @@
+kubectl run bakery-test \
+  --image=curlimages/curl \
+  --restart=Never \
+  --rm -i \
+  -- curl -s http://app2-service/
