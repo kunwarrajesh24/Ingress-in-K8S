@@ -1,14 +1,22 @@
 # Create ConfigMap
-kubectl create configmap bakery-website --from-file=index.html=bakery.html
+kubectl create configmap bakery-website --from-file=index.html
 
 # Verify ConfigMap
 kubectl get configmap bakery-website -o yaml
+
+Restart App2
+kubectl rollout restart deployment app2
+
+kubectl rollout status deployment app2
 
 # Deploy application
 kubectl apply -f app2.yaml
 
 # Check Pods
 kubectl get pods
+
+## Delete ConfigMap
+kubectl delete configmap bakery-website
 
 # Test application
 kubectl run bakery-test --image=curlimages/curl --restart=Never --rm -i -- curl -s http://app2-service/
