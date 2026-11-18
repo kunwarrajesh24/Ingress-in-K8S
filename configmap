@@ -1,0 +1,14 @@
+# Create ConfigMap
+kubectl create configmap bakery-website --from-file=index.html=bakery.html
+
+# Verify ConfigMap
+kubectl get configmap bakery-website -o yaml
+
+# Deploy application
+kubectl apply -f app2.yaml
+
+# Check Pods
+kubectl get pods
+
+# Test application
+kubectl run bakery-test --image=curlimages/curl --restart=Never --rm -i -- curl -s http://app2-service/
